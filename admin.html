@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Log</title>
+  <style>
+    body { background: #111; color: #0f0; font-family: monospace; padding: 20px; }
+    pre { white-space: pre-wrap; word-wrap: break-word; }
+  </style>
+</head>
+<body>
+  <h1>Visitor Logs</h1>
+  <pre id="logData">Loading...</pre>
+
+  <script>
+    fetch('/logs')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('logData').textContent = JSON.stringify(data, null, 2);
+      });
+  </script>
+</body>
+</html>
